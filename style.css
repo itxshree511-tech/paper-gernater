@@ -1,12 +1,9 @@
-/* Body */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg,#74ebd5,#ACB6E5);
-  margin:0;
-  padding:0;
+  background: #e0f7fa;
+  margin:0; padding:0;
 }
 
-/* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -14,109 +11,117 @@ body {
   text-align: center;
 }
 
-/* Header */
 h1 {
+  font-size: 4vw;
   color:#2c3e50;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-shadow: 1px 1px 3px #fff;
 }
 
-/* Classes Container */
 .classes-container {
   display:flex;
   justify-content: space-around;
-  margin-bottom: 30px;
   flex-wrap: wrap;
   gap: 15px;
+  margin-bottom: 20px;
 }
 
-/* Class Card */
 .class-card {
   flex:1;
   min-width:150px;
   background:#ff7675;
-  color:white;
   padding:20px;
   border-radius:15px;
   font-weight:bold;
-  font-size:18px;
+  font-size:1.5rem;
   cursor:pointer;
+  color: #333;
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .class-card:nth-child(2){ background:#74b9ff; }
 .class-card:nth-child(3){ background:#55efc4; }
 .class-card:nth-child(4){ background:#fdcb6e; }
-
 .class-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Subjects Container */
 .subjects-container {
   display:grid;
   grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
   gap:15px;
-  margin-bottom:30px;
+  margin-bottom:20px;
 }
 
-/* Subject Cards */
 .subject-card {
   background:#6c5ce7;
   color:white;
   padding:15px;
-  border-radius:12px;
-  font-weight:bold;
+  font-size: 1rem;
+  font-weight:400;
   cursor:pointer;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .subject-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
 
-/* Paper Output */
 .paper-output {
+  min-height: 40vh;
   text-align:left;
   background:white;
   padding:20px;
   border-radius:15px;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  margin-bottom:20px;
+  margin:2vw;
+  overflow-x:auto;
 }
 
-/* Section Styling */
-.section ol {
-  padding-left:20px;
+/* Page break & styling for PDF */
+.paper { page-break-inside: avoid; font-family: "Times New Roman", serif; }
+.section { page-break-inside: avoid; margin-bottom: 20px; }
+.paper-header { page-break-after: avoid; }
+
+.section ol { padding-left:20px; }
+.section li { margin-bottom:12px; }
+
+/* MCQ Horizontal Options */
+.mcq-options { 
+  display:flex; 
+  gap:20px; 
+  list-style-type:none; 
+  padding-left:0; 
+  flex-wrap: wrap; 
 }
 
-.section li {
-  margin-bottom:8px;
+.mcq-options li::before {
+  content: attr(data-label) ") ";
+  font-weight:bold;
 }
 
-/* Download Button */
 .download-btn {
-  padding:12px 25px;
-  background:#00b894;
+  padding:15px 30px;
+  background:#09a0db;
   color:white;
   border:none;
-  border-radius:12px;
+  border-radius:30px;
   font-size:16px;
   font-weight:bold;
   cursor:pointer;
   transition: background 0.3s, transform 0.2s;
 }
-
 .download-btn:hover {
   background:#019875;
   transform: scale(1.05);
 }
 
-/* Responsive */
 @media(max-width:600px){
   .classes-container{flex-direction:column;align-items:center;}
   .class-card{width:80%; margin-bottom:10px;}
 }
+label{ cursor: pointer; margin-bottom: 1vw; }
+
+.paper-header h2, .paper-header p { margin:0; }
+.section h3 { background:#f2f2f2; padding: 8px 12px; border-left:5px solid #333; }
