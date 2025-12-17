@@ -1,5 +1,5 @@
 // ==========================
-// 9th Class Placeholders - 10 Subjects
+// 9th Class Questions
 // ==========================
 
 // 1. Math
@@ -233,78 +233,140 @@ const TarjumaQuran9_long = [
 ];
 
 // ==========================
-// 10th Class Placeholders (Template)
+// Class Subjects
 // ==========================
-const Math10_mcq = [];
-const Math10_short = [];
-const Math10_long = [];
-
-// Repeat for other subjects
-
-// ==========================
-// 11th Class Placeholders (Template)
-// ==========================
-const Math11_mcq = [];
-const Math11_short = [];
-const Math11_long = [];
+const classSubjects = {
+  "9": ["Math","Physics","Chemistry","Biology","Computer","English","Urdu","Islamiat","Pak Studies","Tarjuma tul Quran"],
+  "10": ["Math","Physics","Chemistry","Biology","Computer","English","Urdu","Islamiat","Pak Studies","Tarjuma tul Quran"],
+  "11": ["Math","Physics","Chemistry","Biology","Computer","English","Urdu","Islamiat","Pak Studies","Tarjuma tul Quran"],
+  "12": ["Math","Physics","Chemistry","Biology","Computer","English","Urdu","Islamiat","Pak Studies","Tarjuma tul Quran"]
+};
 
 // ==========================
-// 12th Class Placeholders (Template)
+// Question Bank
 // ==========================
-const Math12_mcq = [];
-const Math12_short = [];
-const Math12_long = [];
+const questionBank = {
+  "9": {
+    "Math": { mcq: Math9_mcq, short: Math9_short, long: Math9_long },
+    "Physics": { mcq: Physics9_mcq, short: Physics9_short, long: Physics9_long },
+    "Chemistry": { mcq: Chemistry9_mcq, short: Chemistry9_short, long: Chemistry9_long },
+    "Biology": { mcq: Biology9_mcq, short: Biology9_short, long: Biology9_long },
+    "Computer": { mcq: Computer9_mcq, short: Computer9_short, long: Computer9_long },
+    "English": { mcq: English9_mcq, short: English9_short, long: English9_long },
+    "Urdu": { mcq: Urdu9_mcq, short: Urdu9_short, long: Urdu9_long },
+    "Islamiat": { mcq: Islamiat9_mcq, short: Islamiat9_short, long: Islamiat9_long },
+    "Pak Studies": { mcq: PakStudies9_mcq, short: PakStudies9_short, long: PakStudies9_long },
+    "Tarjuma tul Quran": { mcq: TarjumaQuran9_mcq, short: TarjumaQuran9_short, long: TarjumaQuran9_long }
+  }
+};
 
 // ==========================
-// Paper Generator Functions
+// Class & Subject Cards
 // ==========================
-function getRandomItems(arr,count){
-  let shuffled = [...arr].sort(()=>0.5-Math.random());
-  return shuffled.slice(0,count);
-}
+const classCards = document.querySelectorAll('.class-card');
+const subjectsContainer = document.getElementById('subjectsContainer');
 
-function generatePaper(cls,sub){
-  let mcqs=[], shortQs=[], longQs=[];
-  try {
-    mcqs = window[`${sub}${cls}_mcq`] || [];
-    shortQs = window[`${sub}${cls}_short`] || [];
-    longQs = window[`${sub}${cls}_long`] || [];
-  } catch(e){ console.log("Array not found:", e); }
+classCards.forEach(card => {
+  card.addEventListener('click', ()=> {
+    const cls = card.dataset.class;
+    const subjects = classSubjects[cls] || [];
+    subjectsContainer.innerHTML = '';
 
-  const selectedMCQs = getRandomItems(mcqs,5);
-  const selectedShort = getRandomItems(shortQs,2);
-  const selectedLong = getRandomItems(longQs,2);
+    subjects.forEach(sub => {
+      const subCard = document.createElement('div');
+      subCard.classList.add('subject-card');
+      subCard.innerText = sub;
+      subCard.addEventListener('click', ()=> generatePaper(cls, sub));
+      subjectsContainer.appendChild(subCard);
+    });
 
-  let html=`<h2>Class: ${cls} | Subject: ${sub}</h2>`;
-  html+=`<div class='section'><h3>MCQs</h3><ol>`;
-  selectedMCQs.forEach(q=>{
-    html+=`<li>${q.question}<ul>`;
-    q.options?.forEach(opt=>html+=`<li>${opt}</li>`);
-    html+=`</ul></li>`;
+    gsap.from(".subject-card",{opacity:0, y:30, stagger:0.1, duration:0.5});
   });
-  html+=`</ol></div>`;
+});
 
-  html+=`<div class='section'><h3>Short Questions</h3><ol>`;
-  selectedShort.forEach(q=>html+=`<li>${q}</li>`);
-  html+=`</ol></div>`;
+// ==========================
+// MCQ Spacing Slider
+// ==========================
+const slider = document.getElementById("spacingSlider");
+const gapValue = document.getElementById("gapValue");
 
-  html+=`<div class='section'><h3>Long Questions</h3><ol>`;
-  selectedLong.forEach(q=>html+=`<li>${q}</li>`);
-  html+=`</ol></div>`;
+slider.addEventListener("input", ()=> {
+  gapValue.innerText = slider.value;
+  document.querySelectorAll(".mcq-options").forEach(ul=>{
+    ul.style.gap = slider.value + "px";
+  });
+});
 
-  const paperDiv = document.getElementById("paperOutput");
-  if(paperDiv) paperDiv.innerHTML = html;
+// ==========================
+// Utility
+// ==========================
+function getRandomItems(arr, count){
+  return [...arr].sort(()=>0.5-Math.random()).slice(0,count);
 }
 
 // ==========================
-// PDF Download Function
+// Generate Paper
 // ==========================
-function downloadPDF(paperDivId){
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  const content = document.getElementById(paperDivId)?.innerText || "";
-  doc.setFontSize(12);
-  const splitText = doc.splitTextToSize(content,180);
-  doc.text(splitText,10,10);
-  doc.save(`Paper_${Date.now()}.pdf`);
+function generatePaper(cls, sub){
+  const mcqs = questionBank[cls]?.[sub]?.mcq || [];
+  const shortQs = questionBank[cls]?.[sub]?.short || [];
+  const longQs = questionBank[cls]?.[sub]?.long || [];
+
+  if(mcqs.length===0 && shortQs.length===0 && longQs.length===0){
+    alert("No questions available for this class & subject!");
+    return;
+  }
+
+  const MCQ_COUNT = Math.min(5, mcqs.length);
+  const SHORT_COUNT = Math.min(3, shortQs.length);
+  const LONG_COUNT = Math.min(2, longQs.length);
+
+  const MCQ_MARKS = 1, SHORT_MARKS = 5, LONG_MARKS = 10;
+  const totalMarks = (MCQ_COUNT*MCQ_MARKS)+(SHORT_COUNT*SHORT_MARKS)+(LONG_COUNT*LONG_MARKS);
+
+  const selectedMCQs = getRandomItems(mcqs, MCQ_COUNT);
+  const selectedShort = getRandomItems(shortQs, SHORT_COUNT);
+  const selectedLong = getRandomItems(longQs, LONG_COUNT);
+
+  let html = `<div class="paper">
+    <div class="paper-header">
+      <h2>Board Examination – Class ${cls}</h2>
+      <p><strong>Subject:</strong> ${sub}</p>
+      <p><strong>Time:</strong> 3 Hours &nbsp;|&nbsp; <strong>Total Marks:</strong> ${totalMarks}</p>
+      <hr>
+      <p><strong>Instructions:</strong></p>
+      <ul>
+        <li>Attempt all MCQs.</li>
+        <li>Attempt all short questions.</li>
+        <li>Attempt all long questions.</li>
+      </ul>
+    </div>`;
+
+  // MCQs Horizontal
+  html += `<div class="section">
+    <h3>Section A: MCQs (${MCQ_COUNT} × ${MCQ_MARKS})</h3>
+    <ol>`;
+  selectedMCQs.forEach((q)=>{
+    html += `<li>${q.question}
+      <ul class="mcq-options">
+        <li data-label="a">${q.options[0]}</li>
+        <li data-label="b">${q.options[1]}</li>
+        <li data-label="c">${q.options[2]}</li>
+        <li data-label="d">${q.options[3]}</li>
+      </ul>
+    </li>`;
+  });
+  html += `</ol></div>`;
+
+  // Short
+  html += `<div class="section">
+    <h3>Section B: Short Questions (${SHORT_COUNT} × ${SHORT_MARKS})</h3>
+    <ol>${selectedShort.map(q=>`<li>${q}</li>`).join("")}</ol></div>`;
+
+  // Long
+  html += `<div class="section">
+    <h3>Section C: Long Questions (${LONG_COUNT} × ${LONG_MARKS})</h3>
+    <ol>${selectedLong.map(q=>`<li>${q}</li>`).join("")}</ol></div></div>`;
+
+  document.getElementById("paperOutput").innerHTML = html;
 }
