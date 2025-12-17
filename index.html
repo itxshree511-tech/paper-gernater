@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Paper Generator</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="paperGenerator9th.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Interactive Class Paper Generator</h1>
+
+  <!-- Classes -->
+  <div class="classes-container">
+    <div class="class-card" data-class="9">9th Class</div>
+    <div class="class-card" data-class="10">10th Class</div>
+    <div class="class-card" data-class="11">11th Class</div>
+    <div class="class-card" data-class="12">12th Class</div>
+  </div>
+
+  <!-- Subjects will appear here -->
+  <div id="subjectsContainer" class="subjects-container"></div>
+
+  <!-- Paper Output -->
+  <div id="paperOutput" class="paper-output"></div>
+
+  <!-- Download Button -->
+  <button id="downloadBtn" class="download-btn">Download PDF</button>
+</div>
+
+<script>
+const subjectsList = ["Math","Physics","Chemistry","Biology","Computer","English","Urdu","Islamiat","Pak Studies","Tarjuma tul Quran"];
+
+const classCards = document.querySelectorAll('.class-card');
+const subjectsContainer = document.getElementById('subjectsContainer');
+
+classCards.forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const cls = card.dataset.class;
+
+    // Clear previous subjects
+    subjectsContainer.innerHTML = '';
+
+    // Create subject cards
+    subjectsList.forEach(sub=>{
+      const subCard = document.createElement('div');
+      subCard.classList.add('subject-card');
+      subCard.innerText = sub;
+      subCard.addEventListener('click', ()=>{
+        generatePaper(cls,sub);
+      });
+      subjectsContainer.appendChild(subCard);
+    });
+
+    // GSAP Animation for subjects
+    gsap.from(".subject-card",{opacity:0,y:30,stagger:0.1,duration:0.5});
+  });
+});
+
+// Setup PDF download
+document.getElementById("downloadBtn").addEventListener("click", ()=>{
+  downloadPDF("paperOutput");
+});
+</script>
+
+</body>
+</html>
