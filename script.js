@@ -242,6 +242,122 @@ const classSubjects = {
   "12": ["Math","Physics","Chemistry","Biology","Computer","English","Urdu","Islamiat","Pak Studies","Tarjuma tul Quran"]
 };
 
+// Math10
+const Math10_mcq = [    { question: "Quran kitne surah hain?", options: ["114", "100", "120", "110"], answer: "114" },
+            { question: "Pehla surah?", options: ["Al-Fatiha", "Al-Baqarah", "Yaseen", "Al-Ikhlas"], answer: "Al-Fatiha" },
+            { question: "Quran ka pehla kalma?", options: ["La ilaha illallah", "Bismillah", "Allah", "Muhammad"], answer: "Bismillah" },
+            { question: "Quran kitne juz hain?", options: ["30", "29", "28", "31"], answer: "30" },
+            { question: "Allah ka naam kitni martaba aya?", options: ["500", "1000", "200", "600"], answer: "500" }];
+const Math10_short = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+const Math10_long = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+
+// Physics10
+const Physics10_mcq = [    { question: "Quran kitne surah hain?", options: ["114", "100", "120", "110"], answer: "114" },
+            { question: "Pehla surah?", options: ["Al-Fatiha", "Al-Baqarah", "Yaseen", "Al-Ikhlas"], answer: "Al-Fatiha" },
+            { question: "Quran ka pehla kalma?", options: ["La ilaha illallah", "Bismillah", "Allah", "Muhammad"], answer: "Bismillah" },
+            { question: "Quran kitne juz hain?", options: ["30", "29", "28", "31"], answer: "30" },
+            { question: "Allah ka naam kitni martaba aya?", options: ["500", "1000", "200", "600"], answer: "500" }];
+const Physics10_short = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+const Physics10_long = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+
+// Repeat for Chemistry, Biology, Computer, English, Urdu, Islamiat, PakStudies, TarjumaTulQuran
+
+// ==========================
+// 11th Class Subjects
+// ==========================
+
+// Math11
+const Math11_mcq = [     { question: "Quran kitne surah hain?", options: ["114", "100", "120", "110"], answer: "114" },
+            { question: "Pehla surah?", options: ["Al-Fatiha", "Al-Baqarah", "Yaseen", "Al-Ikhlas"], answer: "Al-Fatiha" },
+            { question: "Quran ka pehla kalma?", options: ["La ilaha illallah", "Bismillah", "Allah", "Muhammad"], answer: "Bismillah" },
+            { question: "Quran kitne juz hain?", options: ["30", "29", "28", "31"], answer: "30" },
+            { question: "Allah ka naam kitni martaba aya?", options: ["500", "1000", "200", "600"], answer: "500" } ];
+const Math11_short = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+const Math11_long = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+
+// Physics11
+const Physics11_mcq = [    { question: "Quran kitne surah hain?", options: ["114", "100", "120", "110"], answer: "114" },
+            { question: "Pehla surah?", options: ["Al-Fatiha", "Al-Baqarah", "Yaseen", "Al-Ikhlas"], answer: "Al-Fatiha" },
+            { question: "Quran ka pehla kalma?", options: ["La ilaha illallah", "Bismillah", "Allah", "Muhammad"], answer: "Bismillah" },
+            { question: "Quran kitne juz hain?", options: ["30", "29", "28", "31"], answer: "30" },
+            { question: "Allah ka naam kitni martaba aya?", options: ["500", "1000", "200", "600"], answer: "500" } ];
+const Physics11_short = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+const Physics11_long = [  "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+
+// Repeat for all other 11th subjects
+
+// ==========================
+// 12th Class Subjects
+// ==========================
+
+// Math12
+const Math12_mcq = [     { question: "Quran kitne surah hain?", options: ["114", "100", "120", "110"], answer: "114" },
+            { question: "Pehla surah?", options: ["Al-Fatiha", "Al-Baqarah", "Yaseen", "Al-Ikhlas"], answer: "Al-Fatiha" },
+            { question: "Quran ka pehla kalma?", options: ["La ilaha illallah", "Bismillah", "Allah", "Muhammad"], answer: "Bismillah" },
+            { question: "Quran kitne juz hain?", options: ["30", "29", "28", "31"], answer: "30" },
+            { question: "Allah ka naam kitni martaba aya?", options: ["500", "1000", "200", "600"], answer: "500" }];
+const Math12_short = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6"];
+const Math12_long = [  "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+
+// Physics12
+const Physics12_mcq = [     { question: "Quran kitne surah hain?", options: ["114", "100", "120", "110"], answer: "114" },
+            { question: "Pehla surah?", options: ["Al-Fatiha", "Al-Baqarah", "Yaseen", "Al-Ikhlas"], answer: "Al-Fatiha" },
+            { question: "Quran ka pehla kalma?", options: ["La ilaha illallah", "Bismillah", "Allah", "Muhammad"], answer: "Bismillah" },
+            { question: "Quran kitne juz hain?", options: ["30", "29", "28", "31"], answer: "30" },
+            { question: "Allah ka naam kitni martaba aya?", options: ["500", "1000", "200", "600"], answer: "500" } ];
+const Physics12_short = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+const Physics12_long = [   "Define prime number.",
+            "Find HCF of 12 and 18.",
+            "Write formula for area of circle.",
+            "Simplify: 3/4 + 2/5",
+            "Find LCM of 4 and 6" ];
+
+// Repeat for all 12th subjects
+
 // ==========================
 // Question Bank
 // ==========================
@@ -257,7 +373,24 @@ const questionBank = {
     "Islamiat": { mcq: Islamiat9_mcq, short: Islamiat9_short, long: Islamiat9_long },
     "Pak Studies": { mcq: PakStudies9_mcq, short: PakStudies9_short, long: PakStudies9_long },
     "Tarjuma tul Quran": { mcq: TarjumaQuran9_mcq, short: TarjumaQuran9_short, long: TarjumaQuran9_long }
+  },
+
+  "10": {
+    "Math": { mcq: Math10_mcq, short: Math10_short, long: Math10_long },
+    "Physics": { mcq: Physics10_mcq, short: Physics10_short, long: Physics10_long },
+    // add Chemistry, Biology, etc. same way
+  },
+  "11": {
+    "Math": { mcq: Math11_mcq, short: Math11_short, long: Math11_long },
+    "Physics": { mcq: Physics11_mcq, short: Physics11_short, long: Physics11_long },
+    // add Chemistry, Biology, etc.
+  },
+  "12": {
+    "Math": { mcq: Math12_mcq, short: Math12_short, long: Math12_long },
+    "Physics": { mcq: Physics12_mcq, short: Physics12_short, long: Physics12_long },
+    // add Chemistry, Biology, etc.
   }
+
 };
 
 // ==========================
@@ -370,3 +503,122 @@ function generatePaper(cls, sub){
 
   document.getElementById("paperOutput").innerHTML = html;
 }
+
+
+// download word file ==============
+
+// =================================
+
+
+    
+        function downloadWord() {
+            const paper = document.getElementById("paperOutput");
+
+            if (!paper || paper.innerHTML.trim() === "") {
+                alert("Please generate paper first!");
+                return;
+            }
+
+            // Ask file name
+            let fileName = prompt("Enter file name (without .doc):", "Board_Exam_Class_9");
+            if (!fileName) return;
+            fileName = fileName.replace(/[^a-z0-9_-]/gi, "_");
+
+            let content = paper.innerHTML;
+
+            // ✅ MCQ FIX: a) b) c) d) SAME LINE (Word-safe)
+            content = content.replace(
+                /<ul class="mcq-options">([\s\S]*?)<\/ul>/g,
+                (_, options) => {
+                    const items = options.match(/<li.*?>(.*?)<\/li>/g);
+                    if (!items) return options;
+
+                    const labels = ["a)", "b)", "c)", "d)"];
+
+                    return `
+      <table width="100%" cellspacing="0" cellpadding="3">
+        <tr>
+          ${items.map((i, index) =>
+                        `<td width="25%" style="border:none;font-size:12pt;">
+              <strong>${labels[index]}</strong> ${i.replace(/<[^>]+>/g, "")}
+            </td>`
+                    ).join("")}
+        </tr>
+      </table>`;
+                }
+            );
+
+            const html = `
+  <html xmlns:o="urn:schemas-microsoft-com:office:office"
+        xmlns:w="urn:schemas-microsoft-com:office:word"
+        xmlns="http://www.w3.org/TR/REC-html40">
+  <head>
+    <meta charset="utf-8">
+    <title>${fileName}</title>
+
+    <style>
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
+
+      body {
+        font-family: "Times New Roman";
+        font-size: 12pt;
+        line-height: 1.25;
+      }
+
+      .main-title {
+        text-align: center;
+        font-size: 24pt;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+      }
+
+      .sub-title {
+        text-align: center;
+        font-size: 14pt;
+        margin-bottom: 12px;
+      }
+
+      h3 {
+        text-align: center;
+        margin: 6px 0;
+      }
+
+      p, li {
+        margin: 4px 0;
+      }
+
+      table {
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- 🔥 PROFESSIONAL TITLE -->
+    <div class="main-title">BOARD EXAMINATION – CLASS 9</div>
+    <div class="sub-title">Annual Examination Question Paper</div>
+    <hr>
+
+    ${content}
+
+  </body>
+  </html>`;
+
+            const blob = new Blob(["\ufeff" + html], {
+                type: "application/msword"
+            });
+
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = fileName + ".doc";
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
